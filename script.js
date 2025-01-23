@@ -1,14 +1,15 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get cart from localStorage, or initialize an empty array
 
-// Function to update the cart count
+// Function to update the cart count on the icon and cart section
 function updateCartCount() {
     const cartCount = document.getElementById('cart-count');
     cartCount.textContent = cart.length;
     localStorage.setItem('cart', JSON.stringify(cart)); // Save the cart to localStorage
+    updateCartSection();
 }
 
-// Function to update the cart modal content
-function updateCartModal() {
+// Function to update the cart section with items and total
+function updateCartSection() {
     const cartItemsList = document.getElementById('cart-items-list');
     const cartTotal = document.getElementById('cart-total');
     
@@ -33,31 +34,19 @@ function updateCartModal() {
     cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 }
 
-// Function to open the cart modal
-function openCartModal() {
-    updateCartModal();
-    document.getElementById('cart-modal').style.display = 'block';
-}
-
-// Function to close the cart modal
-function closeCartModal() {
-    document.getElementById('cart-modal').style.display = 'none';
-}
-
 // Function to add a product to the cart
 function addToCart(product) {
     cart.push(product);
-    updateCartCount(); // Update the cart icon count
+    updateCartCount(); // Update the cart count and section
 }
 
 // Function to remove a product from the cart
 function removeFromCart(index) {
     cart.splice(index, 1);
-    updateCartCount(); // Update the cart icon count
-    updateCartModal(); // Update the modal content
+    updateCartCount(); // Update the cart count and section
 }
 
-// Event listener for all "Add to Cart" buttons
+// Event listener for all "Add to Cart" buttons (you may add it to your product display section)
 document.querySelectorAll('.add-to-cart').forEach((button, index) => {
     button.addEventListener('click', () => {
         const productName = document.querySelectorAll('.watch h3')[index].textContent;
@@ -73,11 +62,8 @@ document.querySelectorAll('.add-to-cart').forEach((button, index) => {
     });
 });
 
-// Open the cart modal when clicking the cart icon
-document.getElementById('cart-icon').addEventListener('click', openCartModal);
-
-// Close the cart modal when clicking the close button
-document.getElementById('close-modal-btn').addEventListener('click', closeCartModal);
-
-// Initialize the cart count
+// Initialize the cart count and cart section on page load
 updateCartCount();
+
+// Optionally, show the cart section by default or when a cart icon is clicked.
+document.getElementById('cart-section').style.display = cart.length > 0 ? 'block' : 'none'; // Hide if empty
