@@ -1,9 +1,9 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get cart from localStorage, or initialize an empty array
 
 const watches = [
-    { name: 'Watch 1', price: 249.99, brand: 'Rolex', material: 'metal', color: 'silver', img: 'https://i.postimg.cc/Ls5Q6JCs/rolex-4807479-1280.jpg' },
-    { name: 'Watch 2', price: 179.99, brand: 'boAt', material: 'leather', color: 'rose', img: 'https://i.postimg.cc/xjWKXt5H/642251-IM-1.jpg" alt="Watch 3' },
-    { name: 'Watch 3', price: 115.99, brand: 'G-Shock', material: 'silicone', color: 'blue', img: 'https://i.postimg.cc/66g6fRJd/dmitry-spravko-Hj6-A9-QYe5sk-unsplash-1.jpg' },
+    { name: 'Rolex Daytona', price: 249.99, brand: 'Rolex', material: 'metal', color: 'silver', img: 'https://i.postimg.cc/Ls5Q6JCs/rolex-4807479-1280.jpg' },
+    { name: 'boAt Lunar Peak Rose Edition', price: 179.99, brand: 'boAt', material: 'leather', color: 'rose', img: 'https://i.postimg.cc/xjWKXt5H/642251-IM-1.jpg" alt="Watch 3' },
+    { name: 'G-Shock GA Series', price: 115.99, brand: 'G-Shock', material: 'silicone', color: 'blue', img: 'https://i.postimg.cc/66g6fRJd/dmitry-spravko-Hj6-A9-QYe5sk-unsplash-1.jpg' },
     // Add more watches here
 ];
 
