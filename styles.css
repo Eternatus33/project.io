@@ -102,18 +102,6 @@ nav ul li a {
     position: relative;
 }
 
-#cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: white;
-    color: blue;
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    border-radius: 0;
-    min-width: 20px;
-    text-align: center;
-}
 
 /* Cart Modal */
 .cart-modal {
