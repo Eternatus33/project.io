@@ -16,7 +16,7 @@ function displayWatches(watches) {
         const watchItem = document.createElement('div');
         watchItem.classList.add('watch-item');
         watchItem.innerHTML = `
-            <img src="${https://i.postimg.cc/xjWKXt5H/642251-IM-1.jpg}" alt="${boAt Lunar Peak Rose Edition}">
+             <img src="${watch.img}" alt="${watch.name}">
             <h3>${watch.name}</h3>
             <p>Price: $${watch.price}</p>
         `;
