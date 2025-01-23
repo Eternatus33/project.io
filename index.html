@@ -33,6 +33,60 @@
         </div>
     </section>
 
+    <!-- Filter Sidebar (could be on the left or at the top) -->
+<div class="filter-section">
+    <h3>Filter Watches</h3>
+    
+    <!-- Price Range Filter -->
+    <div class="filter-option">
+        <label for="price-range">Price Range</label>
+        <input type="range" id="price-range" min="0" max="1000" value="1000" step="10">
+        <span id="price-value">$1000</span>
+    </div>
+    
+    <!-- Brand Filter -->
+    <div class="filter-option">
+        <label for="brand">Brand</label>
+        <select id="brand">
+            <option value="all">All Brands</option>
+            <option value="brand1">Brand 1</option>
+            <option value="brand2">Brand 2</option>
+            <option value="brand3">Brand 3</option>
+        </select>
+    </div>
+    
+    <!-- Material Filter -->
+    <div class="filter-option">
+        <label for="material">Material</label>
+        <select id="material">
+            <option value="all">All Materials</option>
+            <option value="leather">Leather</option>
+            <option value="metal">Metal</option>
+            <option value="silicone">Silicone</option>
+        </select>
+    </div>
+    
+    <!-- Color Filter -->
+    <div class="filter-option">
+        <label for="color">Color</label>
+        <select id="color">
+            <option value="all">All Colors</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+        </select>
+    </div>
+    
+    <button id="apply-filters">Apply Filters</button>
+</div>
+
+<!-- Watches Listing Section -->
+<div class="watches-listing" id="watches-listing">
+    <!-- Watches will be displayed here dynamically -->
+</div>
+
+
     <!-- Featured Watches -->
     <section id="shop" class="featured-watches">
         <h2>Featured Watches</h2>
