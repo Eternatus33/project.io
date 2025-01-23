@@ -106,8 +106,8 @@ nav ul li a {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: red;
-    color: white;
+    background-color: white;
+    color: blue;
     font-size: 0.9rem;
     padding: 5px;
     border-radius: 50%;
