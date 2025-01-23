@@ -1,5 +1,166 @@
-<!-- Cart Section with Checkout Button -->
-<section id="cart-section" class="cart-section">
-    <h2>Your Cart</h2>
-    <div id="cart-items-list"></div> <!-- Cart items dynamically displayed -->
-    <div id="cart-total">Total: $0.00</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Link to your CSS file -->
+    <style>
+        /* Basic styling for the checkout page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .checkout-container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-items-list {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-details h4 {
+            margin: 0;
+        }
+        .cart-item-details p {
+            margin: 5px 0;
+        }
+        .remove-btn {
+            background-color: #ff5722;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #ff7043;
+        }
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        
+        <!-- Cart Items List -->
+        <div class="cart-items-list" id="cart-items-list">
+            <!-- Items will be dynamically added here -->
+        </div>
+
+        <!-- Total Price Section -->
+        <div class="total">
+            <span>Total:</span>
+            <span id="total-price">$0.00</span>
+        </div>
+
+        <!-- Checkout Button -->
+        <button class="checkout-btn" id="checkout-btn">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Sample cart data (in a real application, this data might come from localStorage, server, or a cart API)
+        const cartItems = [
+            { id: 1, name: 'Watch 1', price: 200, img: 'watch1.jpg' },
+            { id: 2, name: 'Watch 2', price: 500, img: 'watch2.jpg' },
+            { id: 3, name: 'Watch 3', price: 100, img: 'watch3.jpg' }
+        ];
+
+        // Function to render cart items
+        function renderCartItems() {
+            const cartItemsList = document.getElementById('cart-items-list');
+            cartItemsList.innerHTML = '';  // Clear the list first
+            let total = 0;
+
+            // Loop through each cart item and display it
+            cartItems.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                
+                cartItemDiv.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <p>$${item.price}</p>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
+                `;
+                
+                cartItemsList.appendChild(cartItemDiv);
+                total += item.price;
+            });
+
+            // Update the total price
+            document.getElementById('total-price').textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(itemId) {
+            // Filter out the removed item
+            const updatedCart = cartItems.filter(item => item.id !== itemId);
+
+            // Update the cart items array and re-render the items
+            cartItems.length = 0;  // Clear the original array
+            Array.prototype.push.apply(cartItems, updatedCart);  // Add the updated items
+            renderCartItems();
+        }
+
+        // Initial render of cart items
+        renderCartItems();
+
+        // Checkout button functionality (for now, just an alert)
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            alert('Proceeding to payment...');
+            // Add the logic for checkout (e.g., redirect to a payment page)
+        });
+    </script>
+
+</body>
+</html>
