@@ -2,8 +2,8 @@ let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get cart from loca
 
 const watches = [
     { name: 'Watch 1', price: 249.99, brand: 'Rolex', material: 'metal', color: 'silver', img: 'https://i.postimg.cc/Ls5Q6JCs/rolex-4807479-1280.jpg' },
-    { name: 'Watch 2', price: 115.99, brand: 'boAt', material: 'leather', color: 'rose', img: 'watch2.jpg' },
-    { name: 'Watch 3', price: 100, brand: 'G-Shock', material: 'silicone', color: 'blue', img: 'watch3.jpg' },
+    { name: 'Watch 2', price: 179.99, brand: 'boAt', material: 'leather', color: 'rose', img: 'watch2.jpg' },
+    { name: 'Watch 3', price: 115.99, brand: 'G-Shock', material: 'silicone', color: 'blue', img: 'watch3.jpg' },
     // Add more watches here
 ];
 
