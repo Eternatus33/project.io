@@ -109,7 +109,7 @@ nav ul li a {
     background-color: white;
     color: blue;
     font-size: 0.9rem;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 50%;
     min-width: 20px;
     text-align: center;
