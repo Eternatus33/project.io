@@ -1,11 +1,9 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get cart from localStorage, or initialize an empty array
 
 const watches = [
-    { name: 'Watch 1', price: 200, brand: 'brand1', material: 'metal', color: 'black', img: 'watch1.jpg' },
-    { name: 'Watch 2', price: 500, brand: 'brand2', material: 'leather', color: 'white', img: 'watch2.jpg' },
-    { name: 'Watch 3', price: 100, brand: 'brand3', material: 'silicone', color: 'black', img: 'watch3.jpg' },
-    { name: 'Watch 4', price: 700, brand: 'brand1', material: 'metal', color: 'gold', img: 'watch4.jpg' },
-    { name: 'Watch 5', price: 300, brand: 'brand2', material: 'leather', color: 'silver', img: 'watch5.jpg' },
+    { name: 'Watch 1', price: 200, brand: 'boAt', material: 'metal', color: 'black', img: 'watch1.jpg' },
+    { name: 'Watch 2', price: 500, brand: 'Rolex', material: 'leather', color: 'white', img: 'watch2.jpg' },
+    { name: 'Watch 3', price: 100, brand: 'G-Shock', material: 'silicone', color: 'black', img: 'watch3.jpg' },
     // Add more watches here
 ];
 
