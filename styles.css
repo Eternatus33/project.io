@@ -110,7 +110,7 @@ nav ul li a {
     color: blue;
     font-size: 0.9rem;
     padding: 5px 10px;
-    border-radius: 50%;
+    border-radius: 0;
     min-width: 20px;
     text-align: center;
 }
