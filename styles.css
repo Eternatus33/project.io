@@ -37,6 +37,13 @@ nav ul li a {
     padding: 10px;
 }
 
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
 .hero {
     position: relative;
     background: url('https://i.postimg.cc/zGZgCxsZ/simple-watch-face-mockup.jpg') no-repeat center center/cover;
