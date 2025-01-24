@@ -1,19 +1,43 @@
-// Sample cart data (You can replace this with data from a backend or localStorage)
-let cartItems = [
-    { id: 1, name: 'Watch 1', price: 200, img: 'watch1.jpg' },
-    { id: 2, name: 'Watch 2', price: 500, img: 'watch2.jpg' },
-    { id: 3, name: 'Watch 3', price: 100, img: 'watch3.jpg' }
-];
+// Initialize cart items from localStorage or set as an empty array
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-// Function to render cart items
+// Function to add an item to the cart
+function addToCart(itemId, itemName, itemPrice, itemImg) {
+    // Check if the item already exists in the cart
+    const existingItem = cartItems.find(item => item.id === itemId);
+    if (existingItem) {
+        alert(`${itemName} is already in your cart.`);
+        return;
+    }
+
+    // Add the new item to the cart
+    const newItem = {
+        id: itemId,
+        name: itemName,
+        price: itemPrice,
+        img: itemImg
+    };
+    cartItems.push(newItem);
+
+    // Save the updated cart to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Alert the user
+    alert(`${itemName} has been added to your cart.`);
+}
+
+// Function to render cart items on the checkout page
 function renderCartItems() {
     const cartItemsList = document.getElementById('cart-items-list');
     cartItemsList.innerHTML = ''; // Clear the existing content
 
-    let total = 0; // Total price calculation
+    // Retrieve the cart items from localStorage
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    let total = 0;
 
     // Loop through each item and create HTML structure
-    cartItems.forEach(item => {
+    storedCartItems.forEach(item => {
         const cartItemDiv = document.createElement('div');
         cartItemDiv.classList.add('cart-item');
 
@@ -35,7 +59,7 @@ function renderCartItems() {
     totalPriceElement.textContent = `$${total.toFixed(2)}`;
 
     // Show a message if the cart is empty
-    if (cartItems.length === 0) {
+    if (storedCartItems.length === 0) {
         cartItemsList.innerHTML = '<p>Your cart is empty.</p>';
         totalPriceElement.textContent = `$0.00`;
     }
@@ -43,8 +67,14 @@ function renderCartItems() {
 
 // Function to remove an item from the cart
 function removeItem(itemId) {
-    // Remove the item with the matching ID from the cartItems array
-    cartItems = cartItems.filter(item => item.id !== itemId);
+    // Retrieve cart items from localStorage
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Remove the item with the matching ID
+    const updatedCart = storedCartItems.filter(item => item.id !== itemId);
+
+    // Update localStorage with the updated cart
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
 
     // Re-render the cart items
     renderCartItems();
@@ -52,7 +82,8 @@ function removeItem(itemId) {
 
 // Function to handle the checkout button
 function handleCheckout() {
-    if (cartItems.length === 0) {
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    if (storedCartItems.length === 0) {
         alert('Your cart is empty. Please add items to proceed.');
         return;
     }
@@ -64,7 +95,12 @@ function handleCheckout() {
 }
 
 // Attach event listener to the checkout button
-document.getElementById('checkout-btn').addEventListener('click', handleCheckout);
+const checkoutButton = document.getElementById('checkout-btn');
+if (checkoutButton) {
+    checkoutButton.addEventListener('click', handleCheckout);
+}
 
-// Initial rendering of the cart items
-renderCartItems();
+// Initial rendering of cart items on the checkout page
+if (document.getElementById('cart-items-list')) {
+    renderCartItems();
+}
