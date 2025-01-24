@@ -39,6 +39,58 @@ body {
     line-height: 1.5;
 }
 
+/* Payment Options */
+.payment-option {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-option label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Payment Details */
+.payment-details {
+    margin: 10px 0 20px;
+    display: none;
+    text-align: left;
+}
+
+.payment-details input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.payment-details p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
 /* Return Link */
 .payment-container a {
     display: inline-block;
