@@ -58,4 +58,33 @@ document.getElementById('price-range').addEventListener('input', () => {
 // Initial display of all watches
 displayWatches(watches);
 
+// Add an item to the cart
+function addToCart(itemId, itemName, itemPrice, itemImg) {
+    // Retrieve the existing cart from localStorage or initialize an empty array
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Check if the item already exists in the cart
+    const existingItem = cartItems.find(item => item.id === itemId);
+    if (existingItem) {
+        alert(`${itemName} is already in your cart.`);
+        return;
+    }
+
+    // Add the new item to the cart
+    const newItem = {
+        id: itemId,
+        name: itemName,
+        price: itemPrice,
+        img: itemImg
+    };
+    cartItems.push(newItem);
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Provide feedback to the user
+    alert(`${itemName} has been added to your cart.`);
+}
+
+
 
