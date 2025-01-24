@@ -9,7 +9,44 @@
 <body>
     <div class="payment-container">
         <h1>Payment</h1>
-        <p>Thank you for proceeding to payment. Add payment options here!</p>
+         <p>Please select your payment method and enter the necessary details to proceed.</p>
+
+        <!-- Payment Options -->
+        <form id="payment-form">
+            <!-- Credit Card Option -->
+            <div class="payment-option">
+                <input type="radio" id="credit-card" name="payment-method" value="Credit Card" checked>
+                <label for="credit-card">Credit Card</label>
+            </div>
+            <div id="credit-card-details" class="payment-details">
+                <input type="text" placeholder="Card Number" required>
+                <input type="text" placeholder="Cardholder Name" required>
+                <input type="month" placeholder="Expiry Date" required>
+                <input type="text" placeholder="CVV" required>
+            </div>
+
+            <!-- PayPal Option -->
+            <div class="payment-option">
+                <input type="radio" id="paypal" name="payment-method" value="PayPal">
+                <label for="paypal">PayPal</label>
+            </div>
+            <div id="paypal-details" class="payment-details" style="display: none;">
+                <p>You will be redirected to PayPal to complete your payment.</p>
+            </div>
+
+            <!-- Other Options -->
+            <div class="payment-option">
+                <input type="radio" id="other" name="payment-method" value="Other">
+                <label for="other">Other Payment Methods</label>
+            </div>
+            <div id="other-details" class="payment-details" style="display: none;">
+                <p>Please select a payment method at checkout.</p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Confirm Payment</button>
+        </form>
+
         <a href="index.html">Return to Homepage</a>
     </div>
 </body>
